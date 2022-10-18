@@ -17,12 +17,13 @@ const createMainWindow = () => {
 
     //Set the icon for development build
     mainWindow.setIcon('./resources/icon/logo.png')
+
+    //When the main window is closed, quit the application
+    mainWindow.on('closed', () => {
+        app.quit()
+    })
 }
 
 app.whenReady().then(() => {
     createMainWindow()
-
-    app.on('window-all-closed', () => {
-        app.quit()
-    })
 })
