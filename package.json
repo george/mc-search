@@ -1,0 +1,26 @@
+{
+  "name": "mc-search",
+  "version": "1.0.0",
+  "description": "An electron-based application designed to aggregate all possible information about a Minecraft account",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glove/mc-search.git"
+  },
+  "keywords": [
+    "Minecraft"
+  ],
+  "author": "George, Gabriel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/glove/mc-search/issues"
+  },
+  "homepage": "https://github.com/glove/mc-search#readme",
+  "dependencies": {
+    "electron": "^21.1.1"
+  }
+}
