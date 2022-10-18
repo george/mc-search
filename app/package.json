@@ -4,7 +4,7 @@
   "description": "An electron-based application designed to aggregate all possible information about a Minecraft account",
   "main": "src/index.js",
   "scripts": {
-    "start": "electron .",
+    "start": "set ELECTRON_IS_DEV=0 && electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/glove/mc-search#readme",
   "dependencies": {
-    "electron": "^21.1.1"
+    "electron": "^21.1.1",
+    "electron-is-dev": "^2.0.0"
   }
 }
