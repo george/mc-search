@@ -14,5 +14,3 @@ class LabyModRequest(RequestTemplate, ABC):
             data['labymod_first_join'] = parsed_data['first_joined']
         if parsed_data['last_online']:
             data['labymod_last_online'] = parsed_data['last_online']
-
-        print(parsed_data)

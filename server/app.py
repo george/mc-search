@@ -1,16 +1,17 @@
 import os
-import json
 import asyncio
+import platform
 import requests
 
 from flask import Flask
 from dotenv import load_dotenv
 from aiohttp import ClientSession
 
-from request.impl.LabyModRequest import LabyModRequest
 from request.impl.gapple_request import GappleRequest
 from request.impl.capes_me_request import CapesMeRequest
+from request.impl.laby_mod_request import LabyModRequest
 from request.impl.hypixel_api_request import HypixelApiRequest
+from request.impl.username_history_request import UsernameHistoryRequest
 
 load_dotenv()
 
@@ -19,7 +20,8 @@ web_requests = [
     CapesMeRequest(),
     GappleRequest(),
     LabyModRequest(),
-    HypixelApiRequest()
+    HypixelApiRequest(),
+    UsernameHistoryRequest()
 ]
 
 
@@ -51,4 +53,6 @@ def handle_main_route(username):
 
 
 if __name__ == '__main__':
+    if platform.system() == 'Windows':
+        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     app.run(host=os.getenv('HOST'), port=os.getenv('PORT'))

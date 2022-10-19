@@ -21,4 +21,3 @@ class HypixelApiRequest(RequestTemplate, ABC):
             if player_data['lastLogin']:
                 lastLogin = int(player_data['lastLogin']) / 1000
                 data['last_hypixel_join'] = datetime.fromtimestamp(lastLogin).strftime('%m-%d-%Y')
-    
