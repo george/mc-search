@@ -7,15 +7,19 @@ from flask import Flask
 from dotenv import load_dotenv
 from aiohttp import ClientSession
 
+from request.impl.LabyModRequest import LabyModRequest
 from request.impl.gapple_request import GappleRequest
 from request.impl.capes_me_request import CapesMeRequest
+from request.impl.hypixel_api_request import HypixelApiRequest
 
 load_dotenv()
 
 app = Flask(__name__)
 web_requests = [
     CapesMeRequest(),
-    GappleRequest()
+    GappleRequest(),
+    LabyModRequest(),
+    HypixelApiRequest()
 ]
 
 
