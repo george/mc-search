@@ -12,9 +12,11 @@ class UsernameHistoryRequest(RequestTemplate, ABC):
 
         username_history = parsed_data['username_history']
         names = []
+
         for name in username_history:
+            print(name)
             names.append({
-                'name': name,
+                'name': name['name'],
                 'changed_at': name['changed_at']
             })
 

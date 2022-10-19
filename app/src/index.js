@@ -1,8 +1,9 @@
 const { app, ipcMain, BrowserWindow } = require('electron')
 const axios = require('axios')
-const isDev = require('electron-is-dev');
+const isDev = require('electron-is-dev')
 
-let mainWindow;
+let mainWindow
+let lastResponse
 
 const createMainWindow = () => {
     mainWindow = new BrowserWindow({
@@ -32,7 +33,7 @@ ipcMain.on('search', (event, query) => {
 
     axios.get((isDev ? 'http://127.0.0.1:3000' : 'https://api.hostile.org') + '/data/' + query)
         .then(response => {
-            console.log(response)
+            lastResponse = response.data
         })
 })
 

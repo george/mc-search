@@ -56,7 +56,6 @@ def handle_main_route(username):
 
     asyncio.run(complete_requests(username, data))
 
-    # print(data)
     return data
 
 
