@@ -10,7 +10,7 @@ class LabyModRequest(RequestTemplate, ABC):
         response = await session.get('https://laby.net/api/user/' + data['uuid'] + '/get-game-stats')
         parsed_data = json.loads(await response.text())
 
-        if parsed_data['first_joined']:
+        if 'first_joined' in parsed_data:
             data['labymod_first_join'] = parsed_data['first_joined']
-        if parsed_data['last_online']:
+        if 'last_online' in parsed_data:
             data['labymod_last_online'] = parsed_data['last_online']
