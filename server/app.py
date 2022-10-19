@@ -11,14 +11,16 @@ from request.impl.gapple_request import GappleRequest
 from request.impl.capes_me_request import CapesMeRequest
 from request.impl.laby_mod_request import LabyModRequest
 from request.impl.hypixel_api_request import HypixelApiRequest
+from request.impl.namemc_request import NameMCRequest
 from request.impl.username_history_request import UsernameHistoryRequest
 
 load_dotenv()
 
 app = Flask(__name__)
 web_requests = [
-    CapesMeRequest(),
+    NameMCRequest(),
     GappleRequest(),
+    CapesMeRequest(),
     LabyModRequest(),
     HypixelApiRequest(),
     UsernameHistoryRequest()
