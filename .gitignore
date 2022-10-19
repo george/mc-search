@@ -109,3 +109,6 @@ dist
 
 #MacOS DS STORE
 *.DS_STORE
+
+#Builds
+app/release-builds/
