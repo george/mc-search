@@ -2,9 +2,26 @@
 
 body {
     margin: 0;
+    padding: 0;
 
     font-family: 'Open Sans', sans-serif;
     background: linear-gradient(to right,#23868f,#869f0a);
+}
+
+button {
+    width: 200px;
+    height: 40px;
+
+    color: white;
+
+    border-radius: 8px;
+    border-color: transparent;
+
+    background: #0096FF;
+}
+
+h1 {
+    margin-left: 10px;
 }
 
 .container {
@@ -14,15 +31,11 @@ body {
     justify-content: center;
 }
 
-h1 {
-    margin-left: 5px;
-}
-
 .container .center {
     display: block;
     background: white;
 
-    height: 550px;
+    /*height: 550px;*/
     width: 1100px;
 
     border-radius: 10px;
@@ -60,4 +73,17 @@ button {
     margin-top: 20px;
 
     background: #0096FF;
+}
+
+#top-container {
+    display: flex;
+}
+
+#top-container img {
+    margin-left: 60%;
+    float: right;
+}
+
+#info-container {
+    margin-left: 10px;
 }

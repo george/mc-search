@@ -6,20 +6,79 @@
     <link href= "../css/player_data.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<button id="back">Back</button>
 <div class="container">
     <div class="center">
-        <h1 class="title" id="title">Search Results</h1>
-        
+        <span id="top-container">
+            <h1 class="title" id="title">Search Results</h1>
+            <img id="skull" src="https://visage.surgeplay.com/head/128/" alt="skull">
+        </span>
+
+        <div id="info-container">
+
+        </div>
         <script>
             const { ipcRenderer } = require('electron')
+            const infoContainer = document.getElementById('info-container')
 
             // Tell ipcMain that we need the account data
             ipcRenderer.send('data')
 
-            ipcRenderer.on('response', (event, response) => {
-                console.log(response)
+            document.getElementById('back').addEventListener('click', () => {
+                ipcRenderer.send('back')
+            })
 
+            const append = (key, value) => {
+                infoContainer.innerHTML += key + ' - ' + value + '<br>'
+            }
+
+            const appendArray = (key, value) => {
+                if (value.length === 0) {
+                    return
+                }
+
+                let html = key + ' - <ul>'
+
+                for(let entry of value) {
+                    html += '<li>' + entry + '</li>'
+                }
+
+                infoContainer.innerHTML += html
+            }
+
+            ipcRenderer.on('response', (event, response) => {
                 document.getElementById('title').innerText += ' - ' + response['username']
+                document.getElementById('skull').src += response['uuid']
+
+                append('Username', response['username'])
+                append('UUID', response['uuid'])
+                append('Account Type', response['account_type'])
+                append('Creation Date', response['creation_date'])
+
+                if ('capes' in response) {
+                    appendArray('Capes', response['capes'])
+                }
+
+                appendArray('NameMC Friends', response['namemc_friends']
+                    .map(entry => entry['name']))
+
+                append('First Hypixel Join', response['first_hypixel_join'])
+                append('Last Hypixel Join', response['last_hypixel_join'])
+
+                append('LabyMod First Join', response['labymod_first_join'])
+
+                if (response['labymod_last_online']) {
+                    append('LabyMod Last Join', response['labymod_last_online'])
+                }
+
+                append('Has played Mineplex', response['has_played_mineplex'])
+                append('Has played Wynncraft', response['has_played_wynncraft'])
+                append('Has Joined ManaCube', response['has_played_manacube'])
+
+                appendArray('Name History', response['names']
+                    .map(entry => {
+                        return entry['name']
+                    }))
             })
         </script>
     </div>

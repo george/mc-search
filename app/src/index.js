@@ -39,6 +39,10 @@ ipcMain.on('search', (event, query) => {
         })
 })
 
+ipcMain.on('back', (event) => {
+    mainWindow.loadFile('./resources/views/index.html')
+})
+
 ipcMain.on('data', (event) => {
     mainWindow.webContents.send('response', lastResponse)
 })
