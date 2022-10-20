@@ -53,6 +53,7 @@ def handle_main_route(username):
 
     data['username'] = ashcon_data['username']
     data['uuid'] = ashcon_data['uuid']
+    data['creation_date'] = ashcon_data['created_at']
 
     asyncio.run(complete_requests(username, data))
 
