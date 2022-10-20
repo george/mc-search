@@ -33,8 +33,14 @@ ipcMain.on('search', (event, query) => {
 
     axios.get((isDev ? 'http://127.0.0.1:3000' : 'https://api.hostile.org') + '/data/' + query)
         .then(response => {
+            mainWindow.loadFile('./resources/views/player_data.html')
+
             lastResponse = response.data
         })
+})
+
+ipcMain.on('data', (event) => {
+    mainWindow.webContents.send('response', lastResponse)
 })
 
 app.whenReady().then(() => {

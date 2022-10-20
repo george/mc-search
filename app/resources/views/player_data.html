@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>MCSearch | Hostile</title>
+    <link href= "../css/player_data.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="container">
+    <div class="center">
+        <h1 class="title" id="title">Search Results</h1>
+        
+        <script>
+            const { ipcRenderer } = require('electron')
+
+            // Tell ipcMain that we need the account data
+            ipcRenderer.send('data')
+
+            ipcRenderer.on('response', (event, response) => {
+                console.log(response)
+
+                document.getElementById('title').innerText += ' - ' + response['username']
+            })
+        </script>
+    </div>
+</div>
+</body>
+</html>
