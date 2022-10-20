@@ -14,7 +14,6 @@ class UsernameHistoryRequest(RequestTemplate, ABC):
         names = []
 
         for name in username_history:
-            print(name)
             names.append({
                 'name': name['name'],
                 'changed_at': name['changed_at']
