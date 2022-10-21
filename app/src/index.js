@@ -31,7 +31,7 @@ const createMainWindow = () => {
 ipcMain.on('search', (event, query) => {
     mainWindow.loadFile('./resources/views/loading.html')
 
-    axios.get((isDev ? 'http://127.0.0.1:3000' : 'https://api.hostile.org') + '/data/' + query)
+    axios.get((isDev ? 'http://127.0.0.1:3000' : 'https://hostile.org/api') + '/data/' + query)
         .then(response => {
             mainWindow.loadFile('./resources/views/player_data.html')
 
