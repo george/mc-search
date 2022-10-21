@@ -30,4 +30,4 @@ A Flask & Electron-based application designed to collect all public information 
 
 ## Packaging
 
-Execute `npm start package-(win/mac/linux)` to package the application.
+Execute `npm run package-(win/mac/linux)` to package the application.
