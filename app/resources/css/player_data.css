@@ -61,20 +61,6 @@ input:focus {
     border-bottom-width: 2px;
 }
 
-button {
-    width: 200px;
-    height: 40px;
-
-    color: white;
-
-    border-radius: 8px;
-    border-color: transparent;
-
-    margin-top: 20px;
-
-    background: #0096FF;
-}
-
 #top-container {
     display: flex;
 }
